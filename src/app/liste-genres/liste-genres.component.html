@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+            <app-update-genre  *ngIf="authService.isAdmin()" 
+            [genre] = "updatedGn" 
+            (genreUpdated) = "genreUpdated($event)"
+            [ajout] = "ajout" >
+            </app-update-genre>
+            </div> 
+    <table class="table table-striped">
+    <thead>
+    <tr> <th>Id</th><th>Nom Genre </th><th>Description </th> <th> </th> </tr>
+    </thead>
+    <tbody *ngFor="let gn of genres">
+    <tr>
+    <td>{{gn.idG}}</td>
+    <td>{{gn.nomG}}</td>
+    <td>{{gn.descG}} </td>
+    <td><a class="btn btn-success" (click)="updateGn(gn)" *ngIf="authService.isAdmin()"  >Editer</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

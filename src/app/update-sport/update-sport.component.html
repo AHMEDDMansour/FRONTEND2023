@@ -1,0 +1,39 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Sport :</h2>
+    </div>
+    <form>
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Sport</label>
+            <input readonly type="text" [(ngModel)]="currentSport.idSport" name="idSport" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Sport</label>
+            <input type="text" [(ngModel)]="currentSport.nomSport" name="nomSport" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Sexe</label>
+            <input type="text" [(ngModel)]="currentSport.sexe" name="sexe" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Tournoi</label>
+            <input type="date" [ngModel]="currentSport.dateTournoi | date: 'yyyy-MM-dd'"
+                (ngModelChange)=" currentSport.dateTournoi= $event" name="dateTournoi" class="form-control">
+        </div>
+
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label for="">Genre</label>
+            <select class="form-control form-control-lg" id="idG" name="idG"
+            [(ngModel)]="updatedGnId">
+            <option *ngFor="let gn of genres " [value]="gn.idG" >
+            {{gn.nomG}}
+            </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16"> <img [src]="myImage" class="card-img-top img-fluid rounded-start" style="width: 500px; height: 300px" /> </div>
+        <div class="col-sm-16 col-md-16 col-lg-16"> <label class="mb-2">Image :</label> <input type="file" (change)="onImageUpload($event)" class="form-control"> </div>  
+        <div class="mt-2">
+            <button type="submit" (click)="updateSport()" class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>

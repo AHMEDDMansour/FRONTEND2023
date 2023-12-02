@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped"  >
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Nom Sport</th>
+    <th>Sexe</th>
+    <th>Date Tournoi</th>
+    <th>Genre</th>
+    <th>Image</th>
+    <th></th>
+    <th></th>
+    </tr>
+    </thead>
+    <tbody *ngFor="let sport of sports">
+    <tr >
+    <td>{{sport.idSport}}</td>
+    <td>{{sport.nomSport}}</td>
+    <td>{{sport.sexe}}</td>
+    <td>{{sport.dateTournoi | date:"dd/MM/yyyy"}}</td>
+    <td>{{sport.genre.nomG}}</td>
+    <td><img class="card-img-top img-responsive" src = "{{sport.imageStr}}" style = "height :50px;width:100px"> </td>
+    <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerSport(sport)">supprimer</a></td>
+    <td><a  *ngIf="authService.isAdmin()"  class="btn btn-success" [routerLink]="['/updateSport',sport.idSport]">Modifier</a></td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

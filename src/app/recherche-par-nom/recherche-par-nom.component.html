@@ -1,0 +1,46 @@
+<div class="container">
+
+    <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Sport en tapant : </label>
+        <input #nom [(ngModel)]="searchTerm" name="searchTerm" class="form-control" />      
+      </div>
+        </form>
+
+
+
+
+   <!--  <form class="form-inline">
+        <div class="form-group mx-sm-3 mb-2 mt-2 ">
+        <label>Nom Sport en tapant:</label>
+        <input type="text" class="form-control" [(ngModel)]="nomSport" name="nomSport" class="form-control">
+        <button type="submit" (click)=" rechercherSpts()" class="btn btn-primary mb-2 ml-2">Rechercher</button>
+        </div>
+        </form> -->
+    <div class="card shadow mb-4">
+    <div class="card-body">
+    <table class="table table-striped"  >
+    <thead>
+    <tr>
+    <th>ID</th>
+    <th>Nom Sport</th>
+    <th>Sexe</th>
+    <th>Date Tournoi</th>
+    <th>Genre</th>
+ 
+    </tr>
+    </thead>
+    <tbody *ngFor="let sport of sports | filter: searchTerm ">
+    <tr >
+    <td>{{sport.idSport}}</td>
+    <td>{{sport.nomSport}}</td>
+    <td>{{sport.sexe}}</td>
+    <td>{{sport.dateTournoi | date:"dd/MM/yyyy"}}</td>
+    <td>{{sport.genre.nomG}}</td>
+
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    </div>
+    </div>

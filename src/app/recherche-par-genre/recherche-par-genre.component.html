@@ -1,0 +1,38 @@
+<div class="container">
+
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+    <label>Genres </label>
+    <select class="form-control form-control-lg" id="idG" name="idG" [(ngModel)]="IdGenre" (change)="onChange()">
+        <option *ngFor="let gn of genres" value="{{gn.idG}}">
+            {{gn.nomG}}
+        </option>
+    </select>
+</div>
+
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nom Sport</th>
+                        <th>Sexe</th>
+                        <th>Date Tournoi</th>
+                        <th>Genre</th>
+                    
+                    </tr>
+                </thead>
+                <tbody *ngFor="let sport of sports">
+                    <tr>
+                        <td>{{sport.idSport}}</td>
+                        <td>{{sport.nomSport}}</td>
+                        <td>{{sport.sexe}}</td>
+                        <td>{{sport.dateTournoi | date:"dd/MM/yyyy"}}</td>
+                        <td>{{sport.genre.nomG}}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
